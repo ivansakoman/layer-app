@@ -18,17 +18,21 @@ const ImgModal = (props: Props) => {
     const dispatch = useDispatch();
     const likedImages = useAppSelector((state) => state.likedImages.likedImages)
     const isExist = likedImages.find(currentId => currentId.id === id);
+
     const modalRef = useRef<HTMLDivElement>(null);
 
+    //this state is needed for hiding a like button if image is loading
     const [imgLoading, setImgLoading] = useState<boolean>(true);
 
+    //handle click outside of modal window and if that is the case, close the modal
     useOutsideAlerter(modalRef, handleClose);
 
     const handleLike = (image: IPixabayItem) => {
-
         if (isExist) {
+            //if there is image with same id as clicked image remove it from our state
             dispatch(removeImage(image));
         } else {
+            //on the other hand add new image to the state
             dispatch(addImage(image))
         }
     }

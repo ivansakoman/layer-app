@@ -9,6 +9,7 @@ const SearchInput = (props: Props) => {
 
     const { onChange } = props;
 
+    //don't send request for every letter, but wait for 350ms between keypresses and than send request
     const valueCallback = useCallback(debounce(onChange, 350), []);
 
     const handleChange = (value: string) => {
