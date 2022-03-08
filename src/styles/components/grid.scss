@@ -1,0 +1,30 @@
+/*
+    components: grid.scss;
+*/
+
+.grid {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    @media (max-width: $responsive-md) {
+        justify-content: space-around;
+    }
+    
+    &__item {
+        display: block;
+        margin: calc(#{$unit} * 4);
+        margin-top: 0;
+        
+        border-radius: $border-rounded;
+        object-fit: cover;
+        box-shadow: $shadow-primary;
+        cursor: pointer;
+        transition: transform 250ms ease-out, box-shadow 250ms ease-out;
+
+        &:hover {
+            transform: scale3d(1.1,1.1,1);
+            box-shadow: $shadow-secondary;
+        }
+    }
+}

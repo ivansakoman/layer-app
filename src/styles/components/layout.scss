@@ -1,0 +1,11 @@
+/*
+    components: layout
+*/
+
+$main-card-width: 1032px;
+
+.layout {
+    max-width: $main-card-width;
+    margin: 0 auto;    
+    padding: calc(#{$unit} * 12) 0;
+}

@@ -1,0 +1,43 @@
+/*
+    components: nav.scss;
+*/
+
+.nav {
+    display: flex;
+    justify-content: center;
+
+    &__item {
+        color: $black;
+        position: relative;
+        display: block;
+        padding: calc(#{$unit} * 2) calc(#{$unit} * 4);
+        margin-right: calc(#{$unit} * 4);
+
+        &:last-child {
+            margin-right: calc(#{$unit} * 0);
+        }
+
+        &.active {
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left:0;
+            height: 2px;
+            background-color: $black;
+            width: 0;
+            transition: width 250ms ease-out;
+        }
+    }
+}
